@@ -1,7 +1,7 @@
 class MoviesController < ApplicationController
   def index
     if params[:query].present?
-      @movies = Movie.search_by_title_and_syllabus(params[:query])
+      @movies = Movie.associated_search(params[:query])
 
       # sql_query = "movies.title @@ :query \
       #              OR movies.syllabus @@ :query \
